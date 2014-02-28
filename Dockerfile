@@ -6,7 +6,7 @@ RUN apt-get update
 RUN apt-get install -y wget
 
 #install logstash
-RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O /opt/logstash.jar --no-check-certificate
+RUN wget -nv https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O /opt/logstash.jar --no-check-certificate
 ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 RUN rm -rf /tmp/*
