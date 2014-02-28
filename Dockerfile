@@ -7,9 +7,9 @@ RUN apt-get install -y wget
 
 #install logstash
 RUN wget -nv https://download.elasticsearch.org/logstash/logstash/logstash-1.3.3-flatjar.jar -O /opt/logstash.jar --no-check-certificate
-ADD run.sh /usr/local/bin/run
-RUN chmod +x /usr/local/bin/run
 RUN rm -rf /tmp/*
+
+ADD logstash.conf /opt/logstash.conf
 
 #elastic search
 EXPOSE 9200
@@ -23,4 +23,4 @@ EXPOSE 9292
 
 #gelf udp
 EXPOSE 12201/udp
-CMD ["/usr/local/bin/run"]
+CMD java -jar /opt/logstash.jar agent -f /opt/logstash.conf -- web
