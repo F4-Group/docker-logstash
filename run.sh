@@ -14,8 +14,8 @@ else
     cat << EOF > /opt/logstash.conf
 input {
   syslog {
-    type => syslog
-    port => 514
+    type => gelf
+    port => 12201
   }
 }
 output {
