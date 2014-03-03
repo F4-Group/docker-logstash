@@ -11,12 +11,12 @@ RUN rm -rf /tmp/*
 
 ADD logstash.conf /opt/logstash.conf
 
-#elastic search
+#elasticsearch
 EXPOSE 9200
-EXPOSE 9300
+#EXPOSE 9300
 
 #logstash ui
-EXPOSE 9292
+#EXPOSE 9292
 
 #syslog
 #EXPOSE 514

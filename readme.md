@@ -1,16 +1,15 @@
 # Logstash
 
-Logstash 1.1.13
+Logstash 1.3.3
 
+configured to accept gelf input and output to elasticsearch
+port 9200 must be exported using -p so browsers can access it
 
 * `docker build -t logstash .`
 * `docker run logstash`
- or with an external elasticsearch
-* `docker run -e ES_HOST=1.2.3.4 -e ES_PORT=9300 logstash`
 
 Ports
 
-* 514 (syslog)
-* 9200 (embedded elasticsearch if no external specified)
-* 9292 (logstash ui)
-* 9300 (embedded elasticsearch if no external specified)
+* 12201/udp (gelf udp input)
+* 9200 (embedded elasticsearch)
+
