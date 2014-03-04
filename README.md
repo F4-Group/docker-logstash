@@ -5,6 +5,8 @@ Logstash 1.3.3
 configured to accept gelf input and output to elasticsearch
 port 9200 must be exported using -p so browsers can access it
 
+be careful, since port 12201 is using udp, you cannot use the svendowideit/ambassador image in front.
+
 * `docker build -t logstash .`
 * `docker run logstash`
 
