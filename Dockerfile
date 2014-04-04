@@ -23,4 +23,6 @@ EXPOSE 9200
 
 #gelf udp
 EXPOSE 12201/udp
-CMD java -jar /opt/logstash.jar agent -f /opt/logstash.conf -- web
+
+VOLUME ["/data/elasticsearch"]
+CMD java -Des.path.data="/data/elasticsearch" -jar /opt/logstash.jar agent -f /opt/logstash.conf -- web
