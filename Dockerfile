@@ -9,6 +9,8 @@ RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar
     (cd /tmp && tar zxf logstash.tar.gz && mv logstash-1.4.2 /opt/logstash && \
     rm logstash.tar.gz)
 
+ADD run.sh /usr/local/bin/run
+RUN chmod +x /usr/local/bin/run
 ADD logstash.conf /opt/logstash.conf
 
 #elasticsearch
@@ -26,4 +28,4 @@ EXPOSE 12201/udp
 
 #save logstash data on docker volume to avoid losing it on restart
 VOLUME ["/data/elasticsearch"]
-CMD /opt/logstash/bin/logstash agent -f /opt/logstash.conf -- web
+CMD ["/usr/local/bin/run"]
