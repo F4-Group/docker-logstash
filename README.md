@@ -13,5 +13,6 @@ be careful, since port 12201 is using udp, you cannot use the svendowideit/ambas
 Ports
 
 * 12201/udp (gelf udp input)
-* 9200 (embedded elasticsearch)
+* 9200 (embedded elasticsearch - data)
+* 9300 (embedded elasticsearch - control - for node discovery)
 * 9292 (kibana)

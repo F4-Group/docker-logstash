@@ -13,9 +13,10 @@ ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 ADD logstash.conf /opt/logstash.conf
 
-#elasticsearch
+#elasticsearch data
 EXPOSE 9200
-#EXPOSE 9300
+#elasticsearch control - useful for node discovery
+EXPOSE 9300
 
 #kibana
 EXPOSE 9292
