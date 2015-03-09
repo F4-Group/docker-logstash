@@ -27,6 +27,9 @@ EXPOSE 9292
 #gelf udp
 EXPOSE 12201/udp
 
+#log4j
+EXPOSE 9500
+
 #save logstash data on docker volume to avoid losing it on restart
 VOLUME ["/data/elasticsearch"]
 CMD ["/usr/local/bin/run"]
