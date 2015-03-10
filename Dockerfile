@@ -22,7 +22,7 @@ EXPOSE 9300
 EXPOSE 9292
 
 #syslog
-#EXPOSE 514
+EXPOSE 514
 
 #gelf udp
 EXPOSE 12201/udp
