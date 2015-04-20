@@ -14,8 +14,6 @@ RUN chmod +x /usr/local/bin/run
 ADD logstash.conf /opt/logstash.conf
 ADD elasticsearch.yml /opt/elasticsearch.yml
 
-ENV LS_HEAP_SIZE=24g
-
 #elasticsearch data
 EXPOSE 9200
 #elasticsearch control - useful for node discovery
