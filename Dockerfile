@@ -12,6 +12,9 @@ RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar
 ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 ADD logstash.conf /opt/logstash.conf
+ADD elasticsearch.yml /opt/elasticsearch.yml
+
+ENV ES_HEAP_SIZE=24g
 
 #elasticsearch data
 EXPOSE 9200

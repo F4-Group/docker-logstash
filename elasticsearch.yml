@@ -1,0 +1,5 @@
+#from http://jablonskis.org/2013/elasticsearch-and-logstash-tuning/index.html
+bootstrap.mlockall: true
+indices.memory.index_buffer_size: 50%
+
+index.translog.flush_threshold_ops: 50000
