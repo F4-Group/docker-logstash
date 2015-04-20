@@ -15,7 +15,7 @@ ADD logstash.conf /opt/logstash.conf
 ADD elasticsearch.yml /opt/elasticsearch.yml
 
 ENV ES_HEAP_SIZE=24g
-ENV ES_JAVA_OPTS=-Xms24g -Xmx24g
+ENV ES_JAVA_OPTS="-Xms24g -Xmx24g"
 
 #elasticsearch data
 EXPOSE 9200
