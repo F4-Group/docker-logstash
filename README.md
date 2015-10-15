@@ -13,7 +13,7 @@ be careful, since port 12201 is using udp, you cannot use the svendowideit/ambas
 
 * `docker build -t logstash .`
 * `docker run logstash` or with an external elasticsearch
-* `docker run -e ES_HOST=1.2.3.4 -e ES_HTTP_PORT=9200 -e ES_PORT=9300 logstash`
+* `docker run -e ES_EMBEDDED=false -e ES_HOST=1.2.3.4 -e ES_HTTP_PORT=9200 -e ES_PORT=9300 logstash`
 
 Ports
 

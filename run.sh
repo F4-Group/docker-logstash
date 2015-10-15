@@ -2,15 +2,10 @@
 ES_HOST=${ES_HOST:-127.0.0.1}
 ES_HTTP_PORT=${ES_HTTP_PORT:-9200}
 ES_PORT=${ES_PORT:-9300}
-LS_HEAP_SIZE=24g
+LS_HEAP_SIZE=${LS_HEAP_SIZE:-24g}
+ES_EMBEDDED=${ES_EMBEDDED:-true}
 
-EMBEDDED="false"
-
-if [ "$ES_HOST" = "127.0.0.1" ] ; then
-    EMBEDDED="true"
-fi
-
-if [ "$EMBEDDED" = "true" ]; then
+if [ "$ES_EMBEDDED" = "true" ]; then
     sed "s/%ES_CONF%/embedded => true/g" /opt/logstash.conf.template > /opt/logstash.conf
 else
     sed "s/%ES_CONF%/embedded => false host => "$ES_HOST" port => $ES_PORT/g" /opt/logstash.conf.template > /opt/logstash.conf
