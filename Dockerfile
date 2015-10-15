@@ -5,7 +5,7 @@ MAINTAINER F4 <dev@f4-group.com>
 RUN apt-get update
 RUN apt-get install -y wget
 #install logstash
-RUN wget https://download.elastic.co/logstash/logstash/logstash-1.5.4.tar.gz -O /tmp/logstash.tar.gz && \
+RUN wget -q https://download.elastic.co/logstash/logstash/logstash-1.5.4.tar.gz -O /tmp/logstash.tar.gz && \
     (cd /tmp && tar zxf logstash.tar.gz && mv logstash-1.5.4 /opt/logstash && \
     rm logstash.tar.gz)
 
