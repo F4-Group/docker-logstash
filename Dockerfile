@@ -1,4 +1,4 @@
-FROM charliek/openjdk-jre-7
+FROM java:8
 MAINTAINER F4 <dev@f4-group.com>
 
 # Install dependencies
