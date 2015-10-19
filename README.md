@@ -1,6 +1,6 @@
 # Logstash
 
-Logstash 1.5.4
+Logstash 1.4.4
 
 configured to accept gelf input and output to elasticsearch
 It is configured with :
