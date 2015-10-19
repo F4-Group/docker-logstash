@@ -21,7 +21,5 @@ filter {
 }
 
 output {
-  elasticsearch {
-%ES_CONF%
-  }
+  elasticsearch {  %ES_CONF%  }
 }

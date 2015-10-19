@@ -6,9 +6,14 @@ LS_HEAP_SIZE=${LS_HEAP_SIZE:-24g}
 ES_EMBEDDED=${ES_EMBEDDED:-true}
 
 if [ "$ES_EMBEDDED" = "true" ]; then
-    sed "s/%ES_CONF%/    embedded => true/g" /opt/logstash.conf.template > /opt/logstash.conf
+    sed "s/%ES_CONF%/embedded => true/g" /opt/logstash.conf.template > /opt/logstash.conf
 else
-    sed "s/%ES_CONF%/    embedded => false\n    host => \"$ES_HOST\"\n    port => $ES_PORT/g" /opt/logstash.conf.template > /opt/logstash.conf
+    sed "s/%ES_CONF%/
+    embedded => false
+    host => \"$ES_HOST\"
+    port => $ES_PORT
+    protocol => \"http\"
+/g" /opt/logstash.conf.template > /opt/logstash.conf
 fi
 
 # configure elasticsearch in kibana
