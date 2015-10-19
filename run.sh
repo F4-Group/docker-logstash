@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 ES_HOST=${ES_HOST:-127.0.0.1}
 ES_HTTP_PORT=${ES_HTTP_PORT:-9200}
 ES_PORT=${ES_PORT:-9300}
