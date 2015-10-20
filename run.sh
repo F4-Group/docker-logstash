@@ -13,4 +13,4 @@ fi
 
 # configure elasticsearch in kibana
 sed -i "s/\s.elasticsearch:.*/     elasticsearch: \"http:\/\/$ES_HOST:$ES_HTTP_PORT\",/g" /opt/logstash/vendor/kibana/config.js
-/opt/logstash/bin/logstash agent -f /opt/logstash.conf -- web
+/opt/logstash/bin/logstash agent -f /opt/logstash.conf -l /dev/null -- web
