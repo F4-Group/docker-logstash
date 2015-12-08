@@ -1,6 +1,6 @@
 # Logstash
 
-Logstash 1.4.4
+Logstash 1.5.5
 
 configured to accept gelf input and output to elasticsearch
 It is configured with :
@@ -20,5 +20,4 @@ Ports
 * 12201/udp (gelf udp input)
 * 9200 (embedded elasticsearch if no external specified - data)
 * 9300 (embedded elasticsearch if no external specified - control - for node discovery)
-* 9292 (kibana)
 * 9500 (log4j server)
