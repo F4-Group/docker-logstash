@@ -3,13 +3,8 @@ ES_HOST=${ES_HOST:-127.0.0.1}
 ES_HTTP_PORT=${ES_HTTP_PORT:-9200}
 ES_PORT=${ES_PORT:-9300}
 LS_HEAP_SIZE=${LS_HEAP_SIZE:-24g}
-ES_EMBEDDED=${ES_EMBEDDED:-true}
 
-if [ "$ES_EMBEDDED" = "true" ]; then
-    sed "s/%ES_CONF%/embedded => true/g" /opt/logstash.conf.template > /opt/logstash.conf
-else
-    sed "s/%ES_CONF%/\n    embedded => false\n    host => [\"$ES_HOST\"]\n    port => $ES_HTTP_PORT\n    protocol => \"http\"\n/g" /opt/logstash.conf.template > /opt/logstash.conf
-fi
+sed "s/%ES_CONF%/\n    embedded => false\n    host => [\"$ES_HOST\"]\n    port => $ES_HTTP_PORT\n    protocol => \"http\"\n/g" /opt/logstash.conf.template > /opt/logstash.conf
 
 # configure elasticsearch in kibana
 sed -i "s/\s.elasticsearch:.*/     elasticsearch: \"http:\/\/$ES_HOST:$ES_HTTP_PORT\",/g" /opt/logstash/vendor/kibana/config.js

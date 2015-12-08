@@ -12,7 +12,6 @@ RUN wget -q https://download.elastic.co/logstash/logstash/logstash-1.4.4.tar.gz 
 ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 ADD logstash.conf.template /opt/logstash.conf.template
-ADD elasticsearch.yml /opt/elasticsearch.yml
 
 #elasticsearch data
 EXPOSE 9200
