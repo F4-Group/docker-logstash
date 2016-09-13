@@ -15,11 +15,6 @@ ADD logstash.conf.template /opt/logstash.conf.template
 
 RUN /opt/logstash/bin/logstash-plugin install logstash-filter-de_dot
 
-#elasticsearch data
-EXPOSE 9200
-#elasticsearch control - useful for node discovery
-EXPOSE 9300
-
 #syslog
 EXPOSE 514
 
