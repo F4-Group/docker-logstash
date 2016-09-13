@@ -27,5 +27,4 @@ filter {
 
 output {
   elasticsearch {  %ES_CONF%  }
-  stdout {}
 }
