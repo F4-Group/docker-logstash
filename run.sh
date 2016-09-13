@@ -1,5 +1,6 @@
 #!/bin/bash
-ES_HOSTS=${ES_HOSTS:-[\"127.0.0.1:9200\"]}
+ES_HOSTS=${ES_HOSTS:-127.0.0.1:9200}
+ES_HOSTS=[\"${ES_HOSTS//,/\",\"}\"]
 export LS_HEAP_SIZE=${LS_HEAP_SIZE:-24g}
 
 sed "s/%ES_CONF%/\n    hosts => $ES_HOSTS\n/g" /opt/logstash.conf.template > /opt/logstash.conf
