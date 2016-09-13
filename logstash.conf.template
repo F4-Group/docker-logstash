@@ -23,6 +23,9 @@ filter {
   geoip {
     source => "ips"
   }
+  de_dot {
+    nested => true
+  }
 }
 
 output {

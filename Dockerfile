@@ -13,6 +13,8 @@ ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 ADD logstash.conf.template /opt/logstash.conf.template
 
+RUN /opt/logstash/bin/logstash-plugin install logstash-filter-de_dot
+
 #elasticsearch data
 EXPOSE 9200
 #elasticsearch control - useful for node discovery
