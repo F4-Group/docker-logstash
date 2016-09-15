@@ -13,9 +13,8 @@ ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 ADD logstash.conf.template /opt/logstash.conf.template
 
-RUN /opt/logstash/bin/logstash-plugin uninstall logstash-input-gelf
 RUN git clone -b plugin-api-v1 --depth 1 https://github.com/F4-Group/logstash-input-gelf.git /custom/logstash-input-gelf
-RUN sed -i 's|gem "logstash-input-gelf", "<3.0.0"|gem "logstash-input-gelf", :path => "/custom/logstash-input-gelf"|' /opt/logstash/Gemfile
+RUN sed -i 's|gem "logstash-input-gelf".*$|gem "logstash-input-gelf", :path => "/custom/logstash-input-gelf"|' /opt/logstash/Gemfile
 RUN /opt/logstash/bin/logstash-plugin install logstash-input-gelf
 
 #syslog
