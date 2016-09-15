@@ -1,6 +1,9 @@
 input {
   gelf {
     port => 12201
+    remap => true
+    strip_leading_underscore => true
+    nested_objects => true
   }
   log4j {
     mode => "server"
@@ -22,9 +25,6 @@ input {
 filter {
   geoip {
     source => "ips"
-  }
-  de_dot {
-    nested => true
   }
 }
 
