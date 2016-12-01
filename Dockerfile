@@ -15,6 +15,10 @@ ADD logstash.conf.template /opt/logstash.conf.template
 
 RUN git clone -b plugin-api-v1 --depth 1 https://github.com/F4-Group/logstash-input-gelf.git /custom/logstash-input-gelf
 RUN sed -i 's|gem "logstash-input-gelf".*$|gem "logstash-input-gelf", :path => "/custom/logstash-input-gelf"|' /opt/logstash/Gemfile
+
+RUN git clone -b plugin-api-v1 --depth 1 https://github.com/F4-Group/logstash-filter-geoip.git /custom/logstash-filter-geoip
+RUN sed -i 's|gem "logstash-filter-geoip".*$|gem "logstash-filter-geoip", :path => "/custom/logstash-filter-geoip"|' /opt/logstash/Gemfile
+
 RUN /opt/logstash/bin/logstash-plugin install --no-verify
 
 #syslog
