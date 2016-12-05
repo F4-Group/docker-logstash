@@ -1,11 +1,14 @@
 # Logstash
 
-Logstash 2.4.0
+Logstash 2.4.1
 
 configured to accept gelf input and output to elasticsearch
 It is configured with :
 * input: gelf, log4j
+* filter: geoip
 * output: elasticsearch
+
+It uses a custom `gelf` input plugin and a custom `geoip` filter plugin 
 
 be careful, since port 12201 is using udp, you cannot use the svendowideit/ambassador image in front.
 
