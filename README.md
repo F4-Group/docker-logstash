@@ -8,7 +8,7 @@ It is configured with :
 * filter: geoip
 * output: elasticsearch
 
-It uses a custom `gelf` input plugin and a custom `geoip` filter plugin 
+It uses a custom `gelf` input plugin and a custom `geoip` filter plugin
 
 be careful, since port 12201 is using udp, you cannot use the svendowideit/ambassador image in front.
 
@@ -19,4 +19,5 @@ be careful, since port 12201 is using udp, you cannot use the svendowideit/ambas
 Ports
 
 * 12201/udp (gelf udp input)
-* 9500 (log4j server)
+* 9500/tcp (log4j server)
+* 514/tcp and 514/udp (syslog)
