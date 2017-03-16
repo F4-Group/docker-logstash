@@ -26,6 +26,11 @@ filter {
   geoip {
     source => "ips"
   }
+  if [type] == "syslog" {
+    grok {
+      match => { "message" => "<%{POSINT:level}>%{SYSLOGTIMESTAMP:timestamp} %{SYSLOGHOST:host} %{DATA:facility}(?:\[%{POSINT:pid}\])?: %{GREEDYDATA:message}" }
+    }
+  }
 }
 
 output {
