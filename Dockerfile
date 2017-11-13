@@ -7,6 +7,7 @@ RUN apt-get install -y wget git
 #install logstash
 RUN wget -q https://download.elastic.co/logstash/logstash/logstash-2.4.1.tar.gz -O /tmp/logstash.tar.gz && \
     (cd /tmp && tar zxf logstash.tar.gz && mv logstash-2.4.1 /opt/logstash && rm logstash.tar.gz)
+RUN sed -i 's|kramdown.*|kramdown (1.14.0)|' /opt/logstash/Gemfile.jruby-1.9.lock
 
 ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
