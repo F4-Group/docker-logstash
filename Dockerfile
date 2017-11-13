@@ -3,7 +3,7 @@ MAINTAINER F4 <dev@f4-group.com>
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get install -y wget
+RUN apt-get install -y wget git
 #install logstash
 RUN wget -q https://download.elastic.co/logstash/logstash/logstash-2.4.1.tar.gz -O /tmp/logstash.tar.gz && \
     (cd /tmp && tar zxf logstash.tar.gz && mv logstash-2.4.1 /opt/logstash && rm logstash.tar.gz)
