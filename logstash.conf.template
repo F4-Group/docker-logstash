@@ -35,5 +35,8 @@ filter {
 }
 
 output {
-  elasticsearch {  %ES_CONF%  }
+  elasticsearch {
+    workers => 8
+    %ES_CONF%
+  }
 }
