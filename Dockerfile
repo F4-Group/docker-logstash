@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8-jre
 MAINTAINER F4 <dev@f4-group.com>
 
 # Install dependencies
