@@ -37,6 +37,7 @@ ADD logstash.conf.template /opt/logstash.conf.template
 
 #syslog
 EXPOSE 514
+EXPOSE 514/udp
 
 #gelf udp
 EXPOSE 12201/udp
