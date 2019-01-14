@@ -21,8 +21,8 @@ RUN sed -i 's|gem "logstash-filter-geoip".*$|gem "logstash-filter-geoip", :path 
 
 WORKDIR /custom/logstash-filter-geoip
 
-RUN wget -q https://s3.amazonaws.com/jruby.org/downloads/1.7.26/jruby-bin-1.7.26.tar.gz -O /tmp/jruby.tar.gz && \
-    (cd /tmp && tar zxf jruby.tar.gz && mv jruby-1.7.26 /opt/jruby && rm jruby.tar.gz)
+RUN wget -q https://repo1.maven.org/maven2/org/jruby/jruby-dist/9.2.5.0/jruby-dist-9.2.5.0-bin.tar.gz -O /tmp/jruby.tar.gz && \
+    (cd /tmp && tar zxf jruby.tar.gz && mv jruby-9.2.5.0 /opt/jruby && rm jruby.tar.gz)
 RUN /opt/jruby/bin/jruby -S gem install bundler
 RUN /opt/jruby/bin/jruby -S bundle install --standalone
 RUN /opt/jruby/bin/jruby -S bundle exec rake vendor
