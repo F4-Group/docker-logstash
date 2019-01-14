@@ -1,8 +1,11 @@
 #!/bin/bash
 ES_HOSTS=${ES_HOSTS:-127.0.0.1:9200}
 ES_HOSTS=[\"${ES_HOSTS//,/\",\"}\"]
+WORKERS=${WORKERS:-8}
 export LS_HEAP_SIZE=${LS_HEAP_SIZE:-24g}
 
-sed "s/%ES_CONF%/\n    hosts => $ES_HOSTS\n/g" /opt/logstash.conf.template > /opt/logstash.conf
+sed -e "s/%ES_HOSTS%/$ES_HOSTS/g" \
+    -e "s/%WORKERS%/$WORKERS/g" \
+    /opt/logstash.conf.template > /opt/logstash.conf
 
-/opt/logstash/bin/logstash agent -f /opt/logstash.conf
+/opt/logstash/bin/logstash agent -w $WORKERS -f /opt/logstash.conf

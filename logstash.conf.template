@@ -36,7 +36,7 @@ filter {
 
 output {
   elasticsearch {
-    workers => 8
-    %ES_CONF%
+    workers => %WORKERS%
+    hosts => %ES_HOSTS%
   }
 }
